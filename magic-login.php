@@ -3,7 +3,7 @@
 /**
  * Plugin Name: ✨ Magic Login ✨
  * Plugin URI:  https://princeboss.com
- * Description: Login to the dashboard in just one click.
+ * Description: Login to the dashboard in just one click..
  * Version:     1.0.0
  * Author:      Prince
  * Author URI:  http://princeboss.com
@@ -14,7 +14,8 @@ defined( 'ABSPATH' ) || die();
 class Magic_Login {
 
 	public function __construct() {
-		add_action( 'wp_ajax_nopriv_magic_login', [ $this, 'wp_ajax_nopriv_magic_login' ] );
+		add_action( 'wp_ajax_magic_login', [ $this, 'magic_login' ] );
+		add_action( 'wp_ajax_nopriv_magic_login', [ $this, 'magic_login' ] );
 		add_action( 'login_enqueue_scripts', [ $this, 'login_enqueue_scripts' ] );
 		add_action( 'login_form', [ $this, 'login_form' ] );
 	}
@@ -30,7 +31,7 @@ class Magic_Login {
                 <select id="magic_login" style="width:100%;margin:10px 0 30px;">
                     <option value='-1' selected='selected'>Choose username...</option>
 
-	                <?php
+					<?php
 					$users = get_users( 'number=100&orderby=ID' );
 
 					foreach ( $users as $user ) {
@@ -91,7 +92,7 @@ class Magic_Login {
 		<?php
 	}
 
-	public function wp_ajax_nopriv_magic_login() {
+	public function magic_login() {
 		if ( empty( $_REQUEST['user_id'] ) ) {
 			wp_send_json_error();
 		}
