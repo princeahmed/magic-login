@@ -1,9 +1,9 @@
 <?php
 
 /**
- * Plugin Name: Magic Login
+ * Plugin Name: ✨ Magic Login ✨
  * Plugin URI:  https://princeboss.com
- * Description: Login to the dashboard in just one click..
+ * Description: Login to the dashboard in just one click.
  * Version:     1.0.0
  * Author:      Prince
  * Author URI:  http://princeboss.com
